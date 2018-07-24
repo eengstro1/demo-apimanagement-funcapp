@@ -41,8 +41,6 @@ Code="https://github.com/danielscholl/demo-apimanagement-funcapp.git"
 az group create --name ${Resource_Group} \
 	--location "eastus2"
 
-
-
 az storage account create --name "${Prefix}storage" \
     --resource-group ${Resource_Group} \
     --sku Standard_LRS \
@@ -54,5 +52,10 @@ az functionapp create --name "${Prefix}-funcapp" \
     --storage-account  "${Prefix}storage" \
     --deployment-source-url ${Code}  \
     --consumption-plan-location eastus2
+
+# Change the Function App Version to V2 (beta)
+az functionapp config appsettings set --name "${Prefix}-funcapp" \
+--resource-group ${Resource_Group} \
+--settings FUNCTIONS_EXTENSION_VERSION=beta
 
 ```
