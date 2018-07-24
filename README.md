@@ -35,7 +35,7 @@ dotnet build Demo.Functions.sln
 ```bash
 Resource_Group="demo"
 Prefix="75098"
-Code="https://github.com/danielscholl/demo-apimanagement-functioncode"
+Code="https://github.com/danielscholl/demo-apimanagement-funcapp.git"
 
 # Create Resource Group
 az group create --name ${Resource_Group} \
@@ -51,7 +51,7 @@ az storage account create --name "${Prefix}storage" \
 # Deploy a Function App
 az functionapp create --name "${Prefix}-funcapp" \
     --resource-group ${Resource_Group} \
-    --storage-account  ${Storage_Account} \
+    --storage-account  "${Prefix}storage" \
     --deployment-source-url ${Code}  \
     --consumption-plan-location eastus2
 
