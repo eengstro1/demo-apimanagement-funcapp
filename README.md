@@ -68,9 +68,8 @@ API="https://${Prefix}-funcapp.azurewebsites.net/api"
 # Check the Ping/Pong
 curl ${API}/ping
 
+# Post and Retrieve a TODO
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d "{'tododescription': 'hello-world'}" ${API}/todo
+curl ${API}/todo
 
-curl ${API}
-
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X POST -d "{'tododescription': 'hello-world'}" ${API}
-curl ${API}
 ```
