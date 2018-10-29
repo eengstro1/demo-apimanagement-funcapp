@@ -35,7 +35,7 @@ dotnet build Demo.Functions.sln
 ```bash
 Resource_Group="demo"
 Prefix="75098"
-Code="https://github.com/danielscholl/demo-apimanagement-funcapp.git"
+Code="https://github.com/eengstro1/demo-apimanagement-funcapp.git"
 
 # Create Resource Group
 az group create --name ${Resource_Group} \
